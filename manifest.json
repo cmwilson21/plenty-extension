@@ -1,0 +1,17 @@
+{
+  "manifest_version": 3,
+  "name": "Amazon ISBN Capturer",
+  "version": "1.0",
+  "description": "Support independent bookshops by shopping Bookshop.org",
+  "permissions": ["activeTab"],
+  "host_permissions": ["https://bookshop.org/*"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://*.amazon.com/*"],
+      "js": ["content.js"]
+    }
+  ]
+}
