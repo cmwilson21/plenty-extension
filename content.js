@@ -38,7 +38,7 @@ try {
       console.log("ISBN-13 found:", isbn13);
 
       // Use the ISBN-13 to create the Bookshop.org URL
-      const bookUrl = `https://bookshop.org/book/${isbn13}`;
+      const bookUrl = `https://bookshop.org/a/55741/${isbn13}`;
       console.log("Book URL:", bookUrl);
       insertButton(bookUrl);
     } else {
@@ -55,8 +55,15 @@ try {
 function insertButton(url) {
   console.log("Inserting button with URL:", url);
   const button = document.createElement("button");
-  button.textContent = "Buy on Bookshop.org";
+  button.textContent = "Support Plenty, Shop Indie";
   button.onclick = () => window.open(url, "_blank");
+
+  // style
+  button.style.backgroundColor = "#FFCA4B";
+  button.style.color = "black";
+  button.style.border = "none";
+  button.style.padding = "10px 20px";
+  button.style.cursor = "pointer";
 
   const targetDiv = document.getElementById(
     "goodreadsRatingsWidget_feature_div"
