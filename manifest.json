@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
-  "name": "Amazon ISBN Capturer",
+  "name": "Plenty of Indie",
   "version": "1.0",
-  "description": "Support independent bookshops by shopping Bookshop.org",
+  "description": "Support Plenty independent bookshop by shopping Bookshop.org",
   "permissions": ["activeTab"],
   "host_permissions": ["https://bookshop.org/*"],
   "background": {
