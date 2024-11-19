@@ -16,13 +16,13 @@ try {
       const bookUrl = `https://bookshop.org/a/55741/${isbn13}`;
       insertButton(bookUrl);
     } else {
-      console.error("ISBN-13 format is incorrect");
+      console.error("PE: ISBN-13 format is incorrect");
     }
   } else {
-    console.error("ISBN-13 element not found on Amazon page");
+    console.error("PE: ISBN-13 element not found on Amazon page");
   }
 } catch (error) {
-  console.error("Error in script execution:", error);
+  console.error("PE: Error in script execution:", error);
 }
 
 // Updated insertButton function
@@ -32,10 +32,11 @@ function insertButton(url) {
   button.onclick = () => window.open(url, "_blank");
 
   // style
-  button.style.backgroundColor = "#FFCA4B";
+  button.style.backgroundColor = "#3DED97";
   button.style.color = "#354A21";
   button.style.border = "none";
-  button.style.padding = "10px 20px";
+  button.style.padding = "8px 10px";
+  button.style.fontSize = "16px";
   button.style.cursor = "pointer";
   button.style.borderRadius = "5px";
   button.style.marginBottom = "10px";
@@ -46,6 +47,6 @@ function insertButton(url) {
   if (targetDiv) {
     targetDiv.appendChild(button);
   } else {
-    console.error("Target div not found.");
+    console.error("PE: Target div not found.");
   }
 }
