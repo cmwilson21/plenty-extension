@@ -3,8 +3,8 @@
   "name": "Plenty of Indie",
   "version": "1.0",
   "description": "Support Plenty independent bookshop by shopping Bookshop.org",
-  "permissions": ["activeTab"],
-  "host_permissions": ["https://bookshop.org/*"],
+  "permissions": [],
+  "host_permissions": ["*://*.amazon.com/*", "https://bookshop.org/*"],
   "background": {
     "service_worker": "background.js"
   },
