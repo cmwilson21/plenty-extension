@@ -3,7 +3,7 @@
   "name": "Plenty of Indie",
   "version": "1.0",
   "description": "Support Plenty independent bookshop by shopping Bookshop.org",
-  "permissions": [],
+  "permissions": ["storage"],
   "host_permissions": ["*://*.amazon.com/*", "https://bookshop.org/*"],
   "background": {
     "service_worker": "background.js"

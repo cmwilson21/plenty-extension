@@ -24,28 +24,39 @@ try {
 } catch (error) {
   console.error("PE: Error in script execution:", error);
 }
+async function checkIfUrlExists(url) {
+  const response = await chrome.runtime.sendMessage({
+    action: "redirectToNewUrl",
+    url: url,
+  });
+  console.log("PE: Response from background script:", response);
+  return response.ok;
+}
 
 // Updated insertButton function
-function insertButton(url) {
+async function insertButton(url) {
   const button = document.createElement("button");
   button.textContent = "Support Plenty, Shop Indie";
   button.onclick = () => window.open(url, "_blank");
 
   // style
-  button.style.backgroundColor = "#3DED97";
-  button.style.color = "#354A21";
+  button.disabled = true;
   button.style.border = "none";
   button.style.padding = "8px 10px";
   button.style.fontSize = "16px";
-  button.style.cursor = "pointer";
+  button.style.cursor = "not-allowed";
   button.style.borderRadius = "5px";
   button.style.marginBottom = "10px";
+  const targetDiv = document.getElementById("centerAttributesColumns");
 
-  const targetDiv = document.getElementById(
-    "goodreadsRatingsWidget_feature_div"
-  );
   if (targetDiv) {
-    targetDiv.appendChild(button);
+    targetDiv.after(button);
+    if (await checkIfUrlExists(url)) {
+      button.style.backgroundColor = "#3DED97";
+      button.style.color = "#354A21";
+      button.style.cursor = "pointer";
+      button.disabled = false;
+    }
   } else {
     console.error("PE: Target div not found.");
   }
