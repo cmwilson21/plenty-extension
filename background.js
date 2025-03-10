@@ -7,8 +7,8 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
         ];
 
         if (
-          (result && result.ok) ||
-          Date.now() - result.time < 1000 * 60 * 60 * 12
+          result &&
+          (result.ok || Date.now() - result.time < 1000 * 60 * 60 * 12)
         ) {
           sendResponse({
             cached: true,
